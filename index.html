@@ -1,0 +1,209 @@
+<!doctype html>
+
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kaizo Host — Hosting Digital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fff6fb;
+      --pink:#ff4da6;
+      --dark:#1b1730;
+      --muted:#6b5b76;
+      --card:#fff;
+      --accent:#ffe6f2;
+      --radius:8px;
+      font-family: 'Inter', system-ui, -apple-system, Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#fff);color:var(--dark)}/* Pixel grid background */
+body::before{
+  content:"";position:fixed;inset:0;background-image:
+    linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size:14px 14px;opacity:0.9;pointer-events:none;mix-blend-mode:multiply
+}
+
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;background:linear-gradient(180deg,rgba(255,77,166,0.06),transparent);border-bottom:2px solid rgba(255,77,166,0.08)}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:64px;height:64px;border-radius:8px;background:linear-gradient(135deg,var(--pink),#ff7acb);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-family:'Press Start 2P',monospace;font-size:12px;box-shadow:0 8px 20px rgba(255,77,166,0.14)}
+h1{font-size:16px;margin:0}
+.tag{font-size:12px;color:var(--muted)}
+
+nav{display:flex;gap:8px;align-items:center}
+.nav-link{font-weight:700;padding:8px 12px;border-radius:6px;background:transparent;border:2px solid transparent;cursor:pointer;font-size:13px}
+.nav-link:hover{background:var(--accent)}
+
+.social{display:flex;gap:8px}
+.chip{padding:8px 10px;border-radius:6px;border:2px solid rgba(0,0,0,0.06);background:#fff;cursor:pointer;font-weight:700}
+
+main{max-width:1100px;margin:22px auto;padding:0 18px}
+.hero{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.hero-top{display:flex;gap:16px;align-items:center}
+.badge{background:var(--pink);color:white;padding:6px 10px;border-radius:6px;font-weight:800;font-family:'Press Start 2P',monospace}
+.hero h2{margin:0;font-size:20px}
+.lead{color:var(--muted)}
+
+/* Pricing grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:16px}
+.plan{background:var(--card);border-radius:12px;padding:14px;border:4px solid rgba(27,23,48,0.04);box-shadow:6px 10px 30px rgba(27,23,48,0.04);display:flex;flex-direction:column;gap:10px}
+.plan h3{margin:0;font-size:14px;font-weight:800}
+.price{font-family:'Press Start 2P',monospace;font-size:16px;color:var(--pink)}
+.spec{color:var(--muted);font-size:13px}
+.plan .actions{margin-top:auto;display:flex;gap:8px}
+.btn{flex:1;padding:10px;border-radius:8px;border:0;cursor:pointer;font-weight:800}
+.btn-primary{background:var(--pink);color:white}
+.btn-outline{background:transparent;border:2px dashed var(--pink);color:var(--pink);font-weight:800}
+
+/* Feature strip */
+.features{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.feat{background:#fff;padding:10px;border-radius:8px;border:2px solid rgba(0,0,0,0.03);min-width:180px}
+
+footer{margin-top:28px;padding:20px;border-top:2px solid rgba(255,77,166,0.06);display:flex;justify-content:space-between;align-items:center}
+.muted-small{color:var(--muted);font-size:13px}
+
+/* Pixel button effect */
+.pixel{box-shadow:inset 0 -4px rgba(0,0,0,0.06)}
+
+@media(min-width:860px){
+  .hero{flex-direction:row;justify-content:space-between;align-items:center}
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">KAIZO</div>
+      <div>
+        <h1>Kaizo Host</h1>
+        <div class="tag">Digital Hosting • Cepat & Andal</div>
+      </div>
+    </div><nav>
+  <button class="nav-link" onclick="scrollToPlans()">Paket</button>
+  <button class="nav-link" onclick="openSection('features')">Fitur</button>
+  <div class="social">
+    <button class="chip" onclick="openTikTok()">TikTok</button>
+    <button class="chip" onclick="openWhatsApp()">WhatsApp</button>
+    <button class="chip" onclick="openInstagram()">Instagram</button>
+  </div>
+</nav>
+
+  </header>  <main>
+    <section class="hero">
+      <div>
+        <div class="hero-top">
+          <div class="badge">PIXEL</div>
+          <div style="display:flex;flex-direction:column">
+            <h2>Hosting Digital Kaizo — cepat, aman, ready 24/7</h2>
+            <div class="lead">Mulai dari <strong>Rp 9.900/bulan</strong>. Domain, SSL, dan dukungan WhatsApp tersedia.</div>
+          </div>
+        </div>
+        <div class="features" style="margin-top:12px">
+          <div class="feat">SSD NVMe</div>
+          <div class="feat">Uptime 99.9%</div>
+          <div class="feat">Panel: cPanel / DirectAdmin</div>
+          <div class="feat">Free SSL</div>
+        </div>
+      </div><div style="min-width:220px;background:linear-gradient(180deg,#fff,#fff6fb);padding:12px;border-radius:12px;border:2px solid rgba(255,77,166,0.06);box-shadow:8px 14px 30px rgba(255,77,166,0.04)">
+    <div style="font-weight:800">Promo</div>
+    <div style="font-size:14px;color:var(--muted);margin-top:8px">Diskon 20% untuk bayaran tahunan — gunakan kode <strong>KAIZO20</strong></div>
+    <div style="margin-top:12px;display:flex;gap:8px">
+      <button class="btn btn-primary pixel" onclick="scrollToPlans()">Pilih Paket</button>
+      <button class="btn btn-outline pixel" onclick="openWhatsApp()">Order via WA</button>
+    </div>
+  </div>
+</section>
+
+<section id="plans" style="margin-top:20px">
+  <h3 style="margin:0 0 8px 0">Paket Hosting</h3>
+  <div class="grid" id="plansGrid"></div>
+</section>
+
+<section id="features" style="margin-top:18px">
+  <h3>Fitur Lengkap</h3>
+  <ul style="color:var(--muted)">
+    <li>Instal WordPress 1-klik</li>
+    <li>Backup otomatis harian</li>
+    <li>Support 24/7 melalui WhatsApp</li>
+    <li>Gratis migrasi</li>
+  </ul>
+</section>
+
+  </main>  <footer>
+    <div>
+      <strong>Kaizo Host</strong>
+      <div class="muted-small">Hosting Digital • Domain • SSL</div>
+    </div>
+    <div class="muted-small">©️ <span id="year"></span> Kaizo Host</div>
+  </footer>  <!-- Modal Order -->  <div id="orderModal" style="display:none;position:fixed;inset:0;background:rgba(2,6,23,0.5);align-items:center;justify-content:center;padding:18px">
+    <div style="background:white;border-radius:12px;padding:14px;max-width:540px;width:100%">
+      <div id="orderContent"></div>
+      <div style="display:flex;gap:8px;margin-top:12px;justify-content:flex-end">
+        <button onclick="closeOrder()" style="padding:8px 12px;border-radius:8px">Tutup</button>
+        <button onclick="confirmOrder()" class="btn btn-primary">Konfirmasi & Buka WhatsApp</button>
+      </div>
+    </div>
+  </div>  <script>
+    // Ganti di sini dengan akun / nomor kamu
+    const dataProfile = {
+      tiktok: 'https://www.tiktok.com/@reyyrajinnabung',
+      instagram: 'https://www.instagram.com/ryooomyysfx?igsh=aXBpcXlwczJzNXps',
+      whatsapp: 'https://wa.me/6287740979784'
+    }
+
+    const plans = [
+      {id:1,name:'Starter',price:9900,storage:'1 GB SSD',bandwidth:'10 GB',email:5},
+      {id:2,name:'Personal',price:29000,storage:'5 GB SSD',bandwidth:'50 GB',email:20},
+      {id:3,name:'Business',price:79000,storage:'20 GB SSD',bandwidth:'200 GB',email:100}
+    ];
+
+    function formatPrice(n){return 'Rp ' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + '/bln'}
+
+    function renderPlans(){
+      const grid = document.getElementById('plansGrid');grid.innerHTML='';
+      plans.forEach(p=>{
+        const el = document.createElement('div');el.className='plan';
+        el.innerHTML = `
+          <h3>${p.name}</h3>
+          <div class="price">${formatPrice(p.price)}</div>
+          <div class="spec">${p.storage} • ${p.bandwidth} • ${p.email} email</div>
+          <div class="actions">
+            <button class="btn btn-outline pixel" onclick="showDetail(${p.id})">Detail</button>
+            <button class="btn btn-primary pixel" onclick="order(${p.id})">Order</button>
+          </div>
+        `;
+        grid.appendChild(el);
+      })
+    }
+
+    let currentOrder = null;
+    function showDetail(id){
+      const p = plans.find(x=>x.id===id);
+      alert(`${p.name} — ${p.storage} | ${p.bandwidth} | ${p.email} email\nHarga: ${formatPrice(p.price)}`);
+    }
+
+    function order(id){
+      const p = plans.find(x=>x.id===id);currentOrder=p;
+      const oc = document.getElementById('orderContent');
+      oc.innerHTML = `\n        <div style=\"display:flex;gap:12px;align-items:center;\">\n          <div style=\"width:64px;height:64px;border-radius:8px;background:linear-gradient(135deg,var(--pink),#ff7acb);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-family:'Press Start 2P',monospace\">${p.name.charAt(0)}</div>\n          <div>\n            <div style=\"font-weight:800\">${p.name}</div>\n            <div style=\"color:var(--muted)\">${p.storage} • ${p.bandwidth} • ${p.email} email</div>\n            <div style=\"margin-top:8px;font-weight:800\">${formatPrice(p.price)}</div>\n          </div>\n        </div>\n      `;
+      document.getElementById('orderModal').style.display='flex';
+    }
+    function closeOrder(){document.getElementById('orderModal').style.display='none';currentOrder=null}
+    function confirmOrder(){
+      if(!currentOrder) return closeOrder();
+      const pesan = `Halo, saya mau order paket ${currentOrder.name} (${currentOrder.storage}). Mohon info langkah selanjutnya.`;
+      window.open(dataProfile.whatsapp + encodeURIComponent(pesan),'_blank');
+    }
+
+    function openTikTok(){window.open(dataProfile.tiktok,'_blank')}
+    function openInstagram(){window.open(dataProfile.instagram,'_blank')}
+    function openWhatsApp(){window.open(dataProfile.whatsapp + encodeURIComponent('Halo, saya mau tanya tentang hosting.'),'_blank')}
+    function scrollToPlans(){document.getElementById('plans').scrollIntoView({behavior:'smooth'})}
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    renderPlans();
+  </script></body>
+</html>
